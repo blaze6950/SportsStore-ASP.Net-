@@ -2,8 +2,13 @@
 @{
     ViewBag.Title = "Sports Store: Your Cart";
 }
+
+<style>
+    #cartTable td { vertical-align: middle; }
+</style>
+
 <h2>Your cart</h2>
-<table class="table">
+<table id="cartTable" class="table">
     <thead>
         <tr>
             <th>Quantity</th>
@@ -11,9 +16,11 @@
             <th class="text-right">Price</th>
             <th class="text-right">Subtotal</th>
         </tr>
-    </thead>
+    </thead>
+
     <tbody>
-       @foreach (var line in Model.Cart.Lines) {
+       @foreach (var line in Model.Cart.Lines)
+        {
             <tr>
                 <td class="text-center">@line.Quantity</td>
                 <td class="text-left">@line.Product.Name</td>
@@ -21,9 +28,19 @@
                 <td class="text-right">
                     @((line.Quantity * line.Product.Price).ToString("c"))
                 </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart")) {
+                        @Html.Hidden("ProductId", line.Product.ProductID)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="btn btn-sm btn-warning"
+                               type="submit" value="Remove" />
+                     }
+                </td>
             </tr>
-        }
-    </tbody>
+        }
+
+    </tbody>
+
     <tfoot>
         <tr>
             <td colspan="3" class="text-right">Total:</td>
@@ -32,7 +49,8 @@
             </td>
         </tr>
     </tfoot>
-</table>
-<div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
-</div>
+</table>
+
+    <div class="text-center">
+        <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    </div>
