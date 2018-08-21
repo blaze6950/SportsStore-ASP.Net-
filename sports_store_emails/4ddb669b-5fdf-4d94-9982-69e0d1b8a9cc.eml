@@ -1,0 +1,15 @@
+X-Sender: sportsstore@example.com
+X-Receiver: orders@example.com
+MIME-Version: 1.0
+From: sportsstore@example.com
+To: orders@example.com
+Date: 21 Aug 2018 18:32:29 +0300
+Subject: New order submitted!
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+A new order has been submitted=0D=0A---=0D=0AItems:=0D=0A2 x Stad=
+ium (subtotal: $159,000.00Total order value: $159,000.00---=0D=0A=
+Ship to:=0D=0ANikita Zotov=0D=0Ast. Romashkovaya 1a=0D=0A=0D=0A=0D=0A=
+Odessa=0D=0AOdesskaya=0D=0AUkraine=0D=0A65049=0D=0A---=0D=0AGift =
+wrap: No
